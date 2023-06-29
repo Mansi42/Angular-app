@@ -1,0 +1,120 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/home"
+          >Home <span class="sr-only"></span
+        ></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<p>
+  home works! {{ message }}
+  <button id="submit" (click)="saveData($event)">Submit</button>
+</p>
+
+{{ number + 10 }}
+{{ number - 1 }}
+{{ number * 2 }}
+{{ number / 2 }}
+{{ number % 5 }}
+<div>
+  <img [src]="testImg" height="200px" width="200px" alt="this is image" />
+  <img
+    src="{{ testImg }}"
+    height="200px"
+    width="200px"
+    alt="this is image"
+  /><br />
+
+  <div class="showbtn">
+    <button class="btn btn-outline-info" id="submitbtn" (click)="btn()">
+      {{ btnName }}
+    </button>
+    <table class="table table-dark">
+      <div *ngIf="showMe">
+        <tr>
+          <th>Id</th>
+          <th>FirstName</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Password</th>
+        </tr>
+        <tr *ngFor="let item of arr">
+          <td>{{ item.id }}</td>
+          <td>{{ item.firstname }}</td>
+          <td>{{ item.lastname }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.password }}</td>
+        </tr>
+      </div>
+    </table>
+  </div>
+
+  <p [ngClass]="{ para: isUsed ? true : false }">mansi dhingra</p>
+  <button class="btn btn-outline-info" id="submitbtn12" (click)="xyz()">
+    click me
+  </button>
+  <div>
+    <table class="table table-dark">
+      <div>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Age</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+
+        <tr *ngFor="let i of author">
+          <td>{{ i._id }}</td>
+          <td>{{ i.name }}</td>
+          <td>{{ i.email }}</td>
+          <td>{{ i.password }}</td>
+          <td>{{ i.age }}</td>
+          <td>{{ i.role }}</td>
+          <td>
+            <button
+              class="btn btn-outline-info"
+              id="delete"
+              (click)="deletebtn(i._id)"
+            >
+              Delete</button
+            >&nbsp;&nbsp;<button
+              class="btn btn-outline-info"
+              id="edit"
+              (click)="editbtn(i._id, i)"
+            >
+              Edit
+            </button>
+          </td>
+        </tr>
+      </div>
+    </table>
+  </div>
+</div>
+<app-register [message]="currentMessage"></app-register>
+<app-register (newItemEvent)="addItem($event)"></app-register>
+<ul>
+  <li *ngFor="let message of messages">{{ message }}</li>
+</ul>
